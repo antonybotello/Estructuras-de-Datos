@@ -80,5 +80,8 @@ public class App {
             ultimo = null;
         }
         return true;// Se acepto el proceso
+    public static void crearLista() {
+        Lista lst = new Lista();
+
     }
 }
