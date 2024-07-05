@@ -77,4 +77,17 @@ public class App {
         Lista lst = new Lista();
 
     }
+
+    public void imprimirLista() {
+        if (primero == null) {
+            System.out.println("La lista está vacía.");
+            return;
+        }
+
+        Nodo p = primero;
+        while (p != null) {
+            System.out.print(p.getInfo() + " ");
+            p = p.getEnlace();
+        }
+    }
 }
