@@ -25,7 +25,10 @@ public class App {
             opcion = teclado.nextInt();
 
             switch (opcion) {
-                case 1: // Escriba su nombre
+                case 1: // Felipe Gonzalez
+                    crearLista();
+
+                    System.out.println("### Se creo la lista ###");
 
                     break;
                 case 2:
