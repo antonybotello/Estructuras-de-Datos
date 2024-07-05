@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    private Nodo primero;
-    private Nodo ultimo;
+    private static Nodo primero;
+    private static Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
+    static Lista lst;
 
     public static void main(String[] args) throws Exception {
 
@@ -25,31 +28,43 @@ public class App {
             opcion = teclado.nextInt();
 
             switch (opcion) {
-                case 1: // Felipe Gonzalez
+                case 1: // Escriba su nombre
                     crearLista();
 
                     System.out.println("### Se creo la lista ###");
 
                     break;
+
                 case 2:
+                    imprimirLista(lst);
 
                     break;
-                case 3:
+                case 3: // Julian Roa
+                    System.out.println("Ingrese un dato para agregar a la lista");
+                    int ingresado = teclado.nextInt();
 
+                    anexarInicioLista(ingresado);
                     break;
                 case 4:
 
                     break;
-                case 5:
+                case 5: // Cristian Murcia
+
+                    System.out.print("Ingrese el elemento a buscar: ");
+                    int infoBuscar = teclado.nextInt();
+                    buscarElemento(infoBuscar);
 
                     break;
-                case 6:
-
+                case 6:// laura
+                    borrarNodoInicio();
+                    System.out.println("Se elimino con exito el primer nodo");
                     break;
                 case 7:// Karol Acuña
 
                     /* eliminacion edl nodo al final de la lista */
                     System.out.println("eliminar nodo ssss");
+                    eliminarNodoFinal(1);
+                    
 
 
                     
@@ -66,21 +81,72 @@ public class App {
         }
     }
 
-    public void anexarInicioLista(int info) {
+    public static void anexarInicioLista(int info) {
         Nodo nuevo = new Nodo(info);
-        nuevo.setEnlace(primero);
-        primero = nuevo;
+        if (primero == null) {
+            primero = nuevo;
+            ultimo = nuevo;
+        } else {
+            nuevo.setEnlace(primero);
+            primero = nuevo;
+        }
+
     }
 
 
-    public void eliminarNodoFinal(int info) {
+    public static void eliminarNodoFinal(int info) {
         Nodo nuevo = new Nodo(info);
         ultimo.setEnlace(nuevo);
         ultimo = nuevo;
         ultimo.setEnlace(null);
     }
 
-    public void borrarNodoFinal() {
+    public static void buscarElemento(int info) {
+        Nodo actual = lst.getPrimero();
+        int posicion = 0;
+        boolean encontrado = false;
+
+        while (actual != null) {
+
+            if (actual.getInfo() == info) {
+
+                System.out.println("El dato " + info + " está en la posición " + posicion);
+                encontrado = true;
+                break;
+            }
+
+            actual = actual.getEnlace();
+            posicion++;
+        }
+
+        if (!encontrado) {
+            System.out.println("El dato " + info + " no se encontró en la lista.");
+        }
+    }
+
+    
+
+    public static boolean esVacia() {
+        return (primero == null);
+    }
+
+    public static boolean borrarNodoInicio() {
+        if (esVacia())
+            return false;
+        if (primero.getEnlace() == null) {
+            primero = null;
+            ultimo = null;
+            return false;
+        } else {
+            Nodo temp = primero;
+            primero = primero.getEnlace();
+            temp.setEnlace(null);
+            return true;
+        }
+    }
+
+    public static void crearLista() {
+        lst = new Lista();
 
         Nodo temp = primero;
         Nodo aux = primero;
@@ -90,5 +156,19 @@ public class App {
         }
         ultimo = aux;
         ultimo.setEnlace(null);
+    }
+
+    public static void imprimirLista(Lista lista) {
+        Nodo p = lista.getPrimero();
+        if (p == null) {
+            System.out.println("La lista está vacía.");
+            return;
+        }
+
+        while (p != null) {
+            System.out.print(p.getInfo() + " ");
+            p = p.getEnlace();
+        }
+        System.out.println();
     }
 }
