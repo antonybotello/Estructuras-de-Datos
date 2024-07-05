@@ -72,7 +72,8 @@ public class App {
         primero = nuevo;
     }
 
-    public void anexarFinalLista(int info) {
+
+    public void eliminarNodoFinal(int info) {
         Nodo nuevo = new Nodo(info);
         ultimo.setEnlace(nuevo);
         ultimo = nuevo;
