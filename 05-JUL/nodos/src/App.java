@@ -79,7 +79,8 @@ public class App {
         if (primero == null) {// Si La lista tenía solo un nodo, ahora está vacía
             ultimo = null;
         }
-        return true;// Se acepto el proceso
+        return true;
+    }// Se acepto el proceso
     public static void crearLista() {
         Lista lst = new Lista();
 
