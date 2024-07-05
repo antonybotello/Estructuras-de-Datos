@@ -28,13 +28,15 @@ public class App {
             opcion = teclado.nextInt();
 
             switch (opcion) {
-                case 1: // Felipe Gonzalez
+                case 1: // Escriba su nombre
                     crearLista();
 
                     System.out.println("### Se creo la lista ###");
 
                     break;
+
                 case 2:
+                    imprimirLista(lst);
 
                     break;
                 case 3: // Julian Roa
@@ -53,8 +55,9 @@ public class App {
                     buscarElemento(infoBuscar);
 
                     break;
-                case 6:
-
+                case 6:// laura
+                    borrarNodoInicio();
+                    System.out.println("Se elimino con exito el primer nodo");
                     break;
                 case 7:
 
@@ -112,8 +115,43 @@ public class App {
         }
     }
 
+    
+
+    public static boolean esVacia() {
+        return (primero == null);
+    }
+
+    public static boolean borrarNodoInicio() {
+        if (esVacia())
+            return false;
+        if (primero.getEnlace() == null) {
+            primero = null;
+            ultimo = null;
+            return false;
+        } else {
+            Nodo temp = primero;
+            primero = primero.getEnlace();
+            temp.setEnlace(null);
+            return true;
+        }
+    }
+
     public static void crearLista() {
         lst = new Lista();
 
+    }
+
+    public static void imprimirLista(Lista lista) {
+        Nodo p = lista.getPrimero();
+        if (p == null) {
+            System.out.println("La lista está vacía.");
+            return;
+        }
+
+        while (p != null) {
+            System.out.print(p.getInfo() + " ");
+            p = p.getEnlace();
+        }
+        System.out.println();
     }
 }
