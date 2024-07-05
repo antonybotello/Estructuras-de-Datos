@@ -49,7 +49,10 @@ public class App {
                 case 7:// Karol Acuña
 
                     /* eliminacion edl nodo al final de la lista */
-                    System.out.println("elinar nodo");
+                    System.out.println("eliminar nodo ssss");
+
+
+                    
 
                     break;
                 case 0:
