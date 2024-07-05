@@ -74,7 +74,7 @@ public class App {
     }
 
     public static void crearLista() {
-        lst = new Lista();
+        Lista lst = new Lista();
 
     }
 }
