@@ -1,11 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
     private Nodo primero;
     private Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
-
+    static Lista lst ;
     public static void main(String[] args) throws Exception {
+        
 
         int opcion = 9;
 
@@ -40,7 +43,12 @@ public class App {
                 case 4:
 
                     break;
-                case 5:
+                case 5: // Cristian Murcia
+
+                System.out.print("Ingrese el elemento a buscar: ");
+                int infoBuscar = teclado.nextInt();
+                buscarElemento(infoBuscar);
+
 
                     break;
                 case 6:
@@ -72,9 +80,34 @@ public class App {
         ultimo = nuevo;
         ultimo.setEnlace(null);
     }
+    public static void buscarElemento(int info) {
+        Nodo actual = lst.getPrimero(); 
+        int posicion = 0;
+        boolean encontrado = false;
+    
+        while (actual != null) {
+    
+            if (actual.getInfo() == info) {
+    
+                System.out.println("El dato " + info + " está en la posición " + posicion);
+                encontrado = true;
+                break;
+            }
+
+
+            actual = actual.getEnlace();
+            posicion++;
+        }
+    
+        if (!encontrado) {
+            System.out.println("El dato " + info + " no se encontró en la lista.");
+        }
+    }
+
+    
 
     public static void crearLista() {
-        Lista lst = new Lista();
+        lst = new Lista();
 
     }
 }
