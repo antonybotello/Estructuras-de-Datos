@@ -27,6 +27,8 @@ public class App {
 
             opcion = teclado.nextInt();
 
+            
+
             switch (opcion) {
                 case 1: // Escriba su nombre
                     crearLista();
@@ -45,8 +47,14 @@ public class App {
 
                     anexarInicioLista(ingresado);
                     break;
-                case 4:
 
+                case 4://Samuel Vega
+
+                
+
+                    System.out.println("### Se creo la algo ###");
+                
+                    
                     break;
                 case 5: // Cristian Murcia
 
@@ -126,6 +134,18 @@ public class App {
 
     
 
+    public void anexarFinalList (int dato){
+        Nodo nuevo;
+        nuevo=new Nodo(dato);
+        if (primero==null){
+            primero=nuevo;
+            ultimo=nuevo;
+            } else {
+                ultimo.setEnlace(nuevo);
+                ultimo=nuevo;
+                ultimo.setEnlace(null);
+            }
+        }
     public static boolean esVacia() {
         return (primero == null);
     }
