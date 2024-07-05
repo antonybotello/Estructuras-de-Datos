@@ -3,10 +3,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    private Nodo primero;
-    private Nodo ultimo;
+    private static Nodo primero;
+    private static Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
-    static Lista lst ;
+
+    static Lista lst;
+
     public static void main(String[] args) throws Exception {
         
 
@@ -28,12 +30,13 @@ public class App {
             opcion = teclado.nextInt();
 
             switch (opcion) {
-                case 1: // Felipe Gonzalez
+                case 1: // Escriba su nombre
                     crearLista();
 
                     System.out.println("### Se creo la lista ###");
 
                     break;
+
                 case 2:
 
                     break;
@@ -51,8 +54,9 @@ public class App {
 
 
                     break;
-                case 6:
-
+                case 6:// laura
+                    borrarNodoInicio();
+                    System.out.println("Se elimino con exito el primer nodo");
                     break;
                 case 7:
 
@@ -105,6 +109,25 @@ public class App {
     }
 
     
+
+    public static boolean esVacia() {
+        return (primero == null);
+    }
+
+    public static boolean borrarNodoInicio() {
+        if (esVacia())
+            return false;
+        if (primero.getEnlace() == null) {
+            primero = null;
+            ultimo = null;
+            return false;
+        } else {
+            Nodo temp = primero;
+            primero = primero.getEnlace();
+            temp.setEnlace(null);
+            return true;
+        }
+    }
 
     public static void crearLista() {
         lst = new Lista();
