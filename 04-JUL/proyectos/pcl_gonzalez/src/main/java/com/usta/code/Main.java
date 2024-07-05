@@ -10,6 +10,7 @@ public class Main {
         Scanner miScanner = new Scanner(System.in);
         Stack<Integer> pila = new Stack<>();
         Queue<Integer> cola = new LinkedList<>();
+        
 
         while (true) {
             System.out.println();
