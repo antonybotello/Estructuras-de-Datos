@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
 public class App {
-    private Nodo primero;
-    private Nodo ultimo;
+    private static Nodo primero;
+    private static Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
+
+    static Lista lst;
 
     public static void main(String[] args) throws Exception {
 
@@ -26,12 +28,12 @@ public class App {
 
             switch (opcion) {
                 case 1: // Escriba su nombre
-                crearLista();
+                    crearLista();
 
-                System.out.println("### Se creo la lista ###");
+                    System.out.println("### Se creo la lista ###");
 
-                break;
-                
+                    break;
+
                 case 2:
 
                     break;
@@ -45,7 +47,7 @@ public class App {
 
                     break;
                 case 6:// laura
-                    Nodo.borrarNodoInicio();
+                    borrarNodoInicio();
                     System.out.println("Se elimino con exito el primer nodo");
                     break;
                 case 7:
@@ -75,18 +77,27 @@ public class App {
         ultimo.setEnlace(null);
     }
 
-    public boolean borrarNodoInicio() {
-        if (primero == null) {// Comprobar si la lista está vacía
-            return false;// sino, no hay nada que borrar
-        }
-        primero = primero.getEnlace();// Quitamos el primer nodo y el segundo pasa a ser el primero
-        if (primero == null) {// Si La lista tenía solo un nodo, ahora está vacía
+    public static boolean esVacia() {
+        return (primero == null);
+    }
+
+    public static boolean borrarNodoInicio() {
+        if (esVacia())
+            return false;
+        if (primero.getEnlace() == null) {
+            primero = null;
             ultimo = null;
+            return false;
+        } else {
+            Nodo temp = primero;
+            primero = primero.getEnlace();
+            temp.setEnlace(null);
+            return true;
         }
-        return true;
-    }// Se acepto el proceso
+    }
+
     public static void crearLista() {
-        Lista lst = new Lista();
+        lst = new Lista();
 
     }
 }
