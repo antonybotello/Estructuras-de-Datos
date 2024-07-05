@@ -6,9 +6,9 @@ public class App {
     private Nodo primero;
     private Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
-    static Lista lst ;
+    static Lista lst;
+
     public static void main(String[] args) throws Exception {
-        
 
         int opcion = 9;
 
@@ -35,6 +35,7 @@ public class App {
 
                     break;
                 case 2:
+                    imprimirLista(lst);
 
                     break;
                 case 3:
@@ -45,10 +46,9 @@ public class App {
                     break;
                 case 5: // Cristian Murcia
 
-                System.out.print("Ingrese el elemento a buscar: ");
-                int infoBuscar = teclado.nextInt();
-                buscarElemento(infoBuscar);
-
+                    System.out.print("Ingrese el elemento a buscar: ");
+                    int infoBuscar = teclado.nextInt();
+                    buscarElemento(infoBuscar);
 
                     break;
                 case 6:
@@ -80,47 +80,46 @@ public class App {
         ultimo = nuevo;
         ultimo.setEnlace(null);
     }
+
     public static void buscarElemento(int info) {
-        Nodo actual = lst.getPrimero(); 
+        Nodo actual = lst.getPrimero();
         int posicion = 0;
         boolean encontrado = false;
-    
+
         while (actual != null) {
-    
+
             if (actual.getInfo() == info) {
-    
+
                 System.out.println("El dato " + info + " está en la posición " + posicion);
                 encontrado = true;
                 break;
             }
 
-
             actual = actual.getEnlace();
             posicion++;
         }
-    
+
         if (!encontrado) {
             System.out.println("El dato " + info + " no se encontró en la lista.");
         }
     }
-
-    
 
     public static void crearLista() {
         lst = new Lista();
 
     }
 
-    public void imprimirLista() {
-        if (primero == null) {
+    public static void imprimirLista(Lista lista) {
+        Nodo p = lista.getPrimero();
+        if (p == null) {
             System.out.println("La lista está vacía.");
             return;
         }
 
-        Nodo p = primero;
         while (p != null) {
             System.out.print(p.getInfo() + " ");
             p = p.getEnlace();
         }
+        System.out.println();
     }
 }
