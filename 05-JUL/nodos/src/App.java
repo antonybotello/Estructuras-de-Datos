@@ -46,7 +46,9 @@ public class App {
                 case 6:
 
                     break;
-                case 7:
+                case 7:// Karol Acuña
+
+                    /* eliminacion edl nodo al final de la lista */
 
                     break;
                 case 0:
@@ -73,8 +75,15 @@ public class App {
         ultimo.setEnlace(null);
     }
 
-    public static void crearLista() {
-        Lista lst = new Lista();
+    public void borrarNodoFinal() {
 
+        Nodo temp = primero;
+        Nodo aux = primero;
+        while (temp.getEnlace() != null) {
+            aux = temp;
+            temp = temp.getEnlace();
+        }
+        ultimo = aux;
+        ultimo.setEnlace(null);
     }
 }
