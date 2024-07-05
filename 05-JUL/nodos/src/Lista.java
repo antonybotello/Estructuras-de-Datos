@@ -7,6 +7,8 @@ public class Lista {
   public Lista() {
     this.primero = null;
     this.ultimo = null;
+
+    
   }
 
 
