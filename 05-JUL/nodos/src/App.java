@@ -26,8 +26,12 @@ public class App {
 
             switch (opcion) {
                 case 1: // Escriba su nombre
+                crearLista();
 
-                    break;
+                System.out.println("### Se creo la lista ###");
+
+                break;
+                
                 case 2:
 
                     break;
