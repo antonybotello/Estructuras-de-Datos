@@ -1,11 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
     private Nodo primero;
     private Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
-
+    static Lista lst ;
     public static void main(String[] args) throws Exception {
+        
 
         int opcion = 9;
 
@@ -42,9 +45,10 @@ public class App {
                     break;
                 case 5: // Cristian Murcia
 
-                    System.out.print("Ingrese el elemento a buscar: ");
-                    int datoBuscar = teclado.nextInt();
-                    lista.buscarElemento(datoBuscar);
+                System.out.print("Ingrese el elemento a buscar: ");
+                int infoBuscar = teclado.nextInt();
+                buscarElemento(infoBuscar);
+
 
                     break;
                 case 6:
@@ -76,29 +80,34 @@ public class App {
         ultimo = nuevo;
         ultimo.setEnlace(null);
     }
-
-    public void buscarElemento(int dato) {
-    Nodo actual = primero;  
-    int posicion = 0;       
-    boolean encontrado = false;  
-
+    public static void buscarElemento(int info) {
+        Nodo actual = lst.getPrimero(); 
+        int posicion = 0;
+        boolean encontrado = false;
     
-    while (actual != null) {
-       
-        if (actual.getDato() == dato) {
-            
-            System.out.println("El dato " + dato + " está en la posición " + posicion);
-            encontrado = true;
-            break;
+        while (actual != null) {
+    
+            if (actual.getInfo() == info) {
+    
+                System.out.println("El dato " + info + " está en la posición " + posicion);
+                encontrado = true;
+                break;
+            }
+
+
+            actual = actual.getEnlace();
+            posicion++;
         }
-        
-        actual = actual.getSiguiente();
-        posicion++;
+    
+        if (!encontrado) {
+            System.out.println("El dato " + info + " no se encontró en la lista.");
+        }
     }
 
     
-    if (!encontrado) {
-        System.out.println("El dato " + dato + " no se encontró en la lista.");
+
+    public static void crearLista() {
+        lst = new Lista();
+
     }
-}
 }
