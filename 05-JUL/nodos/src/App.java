@@ -25,10 +25,7 @@ public class App {
             opcion = teclado.nextInt();
 
             switch (opcion) {
-                case 1: // Felipe Gonzalez
-                    crearLista();
-
-                    System.out.println("### Se creo la lista ###");
+                case 1: // Escriba su nombre
 
                     break;
                 case 2:
@@ -43,8 +40,9 @@ public class App {
                 case 5:
 
                     break;
-                case 6:
-
+                case 6:// laura
+                    Nodo.borrarNodoInicio();
+                    System.out.println("Se elimino con exito el primer nodo");
                     break;
                 case 7:
 
@@ -73,8 +71,14 @@ public class App {
         ultimo.setEnlace(null);
     }
 
-    public static void crearLista() {
-        lst = new Lista();
-
+    public boolean borrarNodoInicio() {
+        if (primero == null) {// Comprobar si la lista está vacía
+            return false;// sino, no hay nada que borrar
+        }
+        primero = primero.getEnlace();// Quitamos el primer nodo y el segundo pasa a ser el primero
+        if (primero == null) {// Si La lista tenía solo un nodo, ahora está vacía
+            ultimo = null;
+        }
+        return true;// Se acepto el proceso
     }
 }
