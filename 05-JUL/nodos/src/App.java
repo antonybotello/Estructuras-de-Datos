@@ -22,34 +22,37 @@ public class App {
             System.out.println("7. Borrar nodo al final");
             System.out.println("0. SALIR");
 
-            opcion= teclado.nextInt();
+            opcion = teclado.nextInt();
 
             switch (opcion) {
-                case 1: //Escriba su nombre
-                    
+                case 1: // Felipe Gonzalez
+                    crearLista();
+
+                    System.out.println("### Se creo la lista ###");
+
                     break;
                 case 2:
-                    
+
                     break;
                 case 3:
-                    
+
                     break;
                 case 4:
-                    
+
                     break;
                 case 5:
-                    
+
                     break;
                 case 6:
-                    
+
                     break;
                 case 7:
-                    
+
                     break;
                 case 0:
-                    
+
                     break;
-            
+
                 default:
                     break;
             }
@@ -68,5 +71,10 @@ public class App {
         ultimo.setEnlace(nuevo);
         ultimo = nuevo;
         ultimo.setEnlace(null);
+    }
+
+    public static void crearLista() {
+        lst = new Lista();
+
     }
 }
