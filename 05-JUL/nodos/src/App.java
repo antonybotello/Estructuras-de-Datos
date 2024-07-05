@@ -1,14 +1,13 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
+
     private Nodo primero;
     private Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
-    static Lista lst ;
+    static Lista lst;
+
     public static void main(String[] args) throws Exception {
-        
 
         int opcion = 9;
 
@@ -27,50 +26,43 @@ public class App {
 
             opcion = teclado.nextInt();
 
-            
-
             switch (opcion) {
-                case 1: // Felipe Gonzalez
+                case 1 -> {
+                    // Felipe Gonzalez
                     crearLista();
 
                     System.out.println("### Se creo la lista ###");
+                }
+                case 2 -> {
+                }
+                case 3 -> {
+                }
 
-                    break;
-                case 2:
+                case 4 -> {
+                    //Samuel Vega
 
-                    break;
-                case 3:
+                    System.out.println("Digite el dato a agregar");
+                    int dato = teclado.nextInt();
 
-                    break;
+                    Lista list = new Lista();
+                    list.anexarFinalList(dato);
+                }
+                case 5 -> {
+                    // Cristian Murcia
 
-                case 4://Samuel Vega
+                    System.out.print("Ingrese el elemento a buscar: ");
+                    int infoBuscar = teclado.nextInt();
+                    buscarElemento(infoBuscar);
+                }
+                case 6 -> {
+                }
+                case 7 -> {
+                }
+                case 0 -> {
+                }
 
-                
-
-                    System.out.println("### Se creo la algo ###");
-                
-                    
-                    break;
-                case 5: // Cristian Murcia
-
-                System.out.print("Ingrese el elemento a buscar: ");
-                int infoBuscar = teclado.nextInt();
-                buscarElemento(infoBuscar);
-
-
-                    break;
-                case 6:
-
-                    break;
-                case 7:
-
-                    break;
-                case 0:
-
-                    break;
-
-                default:
-                    break;
+                default -> {
+                }
             }
 
         }
@@ -88,44 +80,29 @@ public class App {
         ultimo = nuevo;
         ultimo.setEnlace(null);
     }
+
     public static void buscarElemento(int info) {
-        Nodo actual = lst.getPrimero(); 
+        Nodo actual = lst.getPrimero();
         int posicion = 0;
         boolean encontrado = false;
-    
+
         while (actual != null) {
-    
+
             if (actual.getInfo() == info) {
-    
+
                 System.out.println("El dato " + info + " está en la posición " + posicion);
                 encontrado = true;
                 break;
             }
 
-
             actual = actual.getEnlace();
             posicion++;
         }
-    
+
         if (!encontrado) {
             System.out.println("El dato " + info + " no se encontró en la lista.");
         }
     }
-
-    
-
-    public void anexarFinalList (int dato){
-        Nodo nuevo;
-        nuevo=new Nodo(dato);
-        if (primero==null){
-            primero=nuevo;
-            ultimo=nuevo;
-            } else {
-                ultimo.setEnlace(nuevo);
-                ultimo=nuevo;
-                ultimo.setEnlace(null);
-            }
-        }
 
     public static void crearLista() {
         lst = new Lista();

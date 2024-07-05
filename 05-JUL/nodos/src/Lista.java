@@ -30,6 +30,17 @@ public class Lista {
   public void setUltimo(Nodo ultimo) {
     this.ultimo = ultimo;
   }
-
+  public void anexarFinalList (int dato){
+    Nodo nuevo ;
+    nuevo=new Nodo(dato);
+    if (primero==null){
+        primero=nuevo;
+        ultimo=nuevo;
+        } else {
+            ultimo.setEnlace(nuevo);
+            ultimo=nuevo;
+            ultimo.setEnlace(null);
+        }
+    }
   
 }
