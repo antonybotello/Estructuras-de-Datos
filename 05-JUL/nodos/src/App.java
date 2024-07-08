@@ -146,6 +146,7 @@ public class App {
                 ultimo.setEnlace(null);
             }
         }
+        
     public static boolean esVacia() {
         return (primero == null);
     }
