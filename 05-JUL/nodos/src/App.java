@@ -67,7 +67,15 @@ public class App {
                     borrarNodoInicio();
                     System.out.println("Se elimino con exito el primer nodo");
                     break;
-                case 7:
+                case 7:// Karol Acuña
+
+                    /* eliminacion edl nodo al final de la lista */
+                    System.out.println("eliminar nodo ssss");
+                    eliminarNodoFinal(1);
+                    
+
+
+                    
 
                     break;
                 case 0:
@@ -93,7 +101,8 @@ public class App {
 
     }
 
-    public void anexarFinalLista(int info) {
+
+    public static void eliminarNodoFinal(int info) {
         Nodo nuevo = new Nodo(info);
         ultimo.setEnlace(nuevo);
         ultimo = nuevo;
@@ -125,6 +134,18 @@ public class App {
 
     
 
+    public void anexarFinalList (int dato){
+        Nodo nuevo;
+        nuevo=new Nodo(dato);
+        if (primero==null){
+            primero=nuevo;
+            ultimo=nuevo;
+            } else {
+                ultimo.setEnlace(nuevo);
+                ultimo=nuevo;
+                ultimo.setEnlace(null);
+            }
+        }
     public static boolean esVacia() {
         return (primero == null);
     }
@@ -144,22 +165,17 @@ public class App {
         }
     }
 
-    public void anexarFinalList (int dato){
-        Nodo nuevo;
-        nuevo=new Nodo(dato);
-        if (primero==null){
-            primero=nuevo;
-            ultimo=nuevo;
-            } else {
-                ultimo.setEnlace(nuevo);
-                ultimo=nuevo;
-                ultimo.setEnlace(null);
-            }
-        }
-
     public static void crearLista() {
         lst = new Lista();
 
+        Nodo temp = primero;
+        Nodo aux = primero;
+        while (temp.getEnlace() != null) {
+            aux = temp;
+            temp = temp.getEnlace();
+        }
+        ultimo = aux;
+        ultimo.setEnlace(null);
     }
 
     public static void imprimirLista(Lista lista) {
