@@ -6,7 +6,6 @@ public class Producto {
   private String unidadMedida;
   private Integer valorUnitario;
 
-  
   public Producto(Integer id, String nombre, String descripción, Integer cantidad, String unidadMedida,
       Integer valorUnitario) {
     this.id = id;
@@ -16,40 +15,51 @@ public class Producto {
     this.unidadMedida = unidadMedida;
     this.valorUnitario = valorUnitario;
   }
-  
+
   public Integer getId() {
     return id;
   }
+
   public void setId(Integer id) {
     this.id = id;
   }
+
   public String getNombre() {
     return nombre;
   }
+
   public void setNombre(String nombre) {
     this.nombre = nombre;
   }
+
   public String getDescripción() {
     return descripción;
   }
+
   public void setDescripción(String descripción) {
     this.descripción = descripción;
   }
+
   public Integer getCantidad() {
     return cantidad;
   }
+
   public void setCantidad(Integer cantidad) {
     this.cantidad = cantidad;
   }
+
   public String getUnidadMedida() {
     return unidadMedida;
   }
+
   public void setUnidadMedida(String unidadMedida) {
     this.unidadMedida = unidadMedida;
   }
+
   public Integer getValorUnitario() {
     return valorUnitario;
   }
+
   public void setValorUnitario(Integer valorUnitario) {
     this.valorUnitario = valorUnitario;
   }
@@ -60,7 +70,4 @@ public class Producto {
         + ", unidadMedida=" + unidadMedida + ", valorUnitario=" + valorUnitario + "]";
   }
 
-
- 
-  
 }
