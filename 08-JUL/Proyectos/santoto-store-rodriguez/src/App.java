@@ -9,8 +9,6 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
 
-    
-
         int opcion = 9;
 
         while (opcion != 0) {
@@ -43,29 +41,20 @@ public class App {
                     Producto producto = new Producto(nombre, descripción, cantidad, unidadMedida, valorUnitario);
                     agregarProducto(producto);
 
-            case 2:
-                System.out.print("Ingrese el nombre del producto que desea buscar: ");
-                String nombreBuscar = scanner.nextLine();
-                Producto productoEncontrado = buscarProducto(nombreBuscar);
-                if (productoEncontrado != null) {
-                    System.out.println("Producto encontrado: Nombre: " + productoEncontrado.getNombre() + ", Precio: " + productoEncontrado.getPrecio());
-                } else {
-                    System.out.println("Producto no encontrado.");
-                }
-                break;
+                    break;
 
-
-            case 3:
-                System.out.println("Lista de productos:");
-                mostrarProductos();
-                break;
-
-            case 4:
-                System.out.print("Ingrese el nombre del producto que desea eliminar: ");
-                String nombreEliminar = scanner.nextLine();
-                boolean resultado = eliminarProducto(nombreEliminar);
-                if (resultado) {
-                    System.out.println("Producto eliminado.");
+                case 2:
+                    System.out.print("Ingrese el nombre del producto que desea buscar: ");
+                    String nombreBuscar = teclado.nextLine();
+                    Producto productoEncontrado = buscarProducto(nombreBuscar);
+                    if (productoEncontrado != null) {
+                        System.out.println("Producto encontrado: Nombre:" + productoEncontrado.getNombreProducto()
+                                + ", Descripción: " + productoEncontrado.getDescripción()
+                                + ", Cantidad: " + productoEncontrado.getCantidad() + ", Unidad de Medida: "
+                                + productoEncontrado.getUnidadMedida()
+                                + ", Valor Unitario: " + productoEncontrado.getValorUnitario());
+                    } else {
+                        System.out.println("Producto no encontrado.");
                     }
 
                     break;
