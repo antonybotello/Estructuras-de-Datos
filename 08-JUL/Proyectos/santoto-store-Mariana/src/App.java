@@ -1,10 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
 
     Nodo nodo = new Nodo();
+   
 
     public static void main(String[] args) throws Exception {
+
+        List<Producto> productos = new ArrayList<>();
 
         System.out.println("rama de mariana");
 
@@ -27,7 +32,7 @@ public class App {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("ingresar nodo");
+                    System.out.println("ingresar producto");
 
                     System.out.println("ingresar id producto");
                     int id = entrada.nextInt();
@@ -44,8 +49,9 @@ public class App {
                     String unidad = entrada.nextLine();
                     System.out.println("ingresar precio de venta");
                     double precio = entrada.nextDouble();
-                    Producto producto = new Producto(id, nombre, descripcion, cantidad, unidad, precio);
 
+                    Producto producto = new Producto(id, nombre, descripcion, cantidad, unidad, precio);
+                    productos.add(producto);
                     Nodo nodo1 = new Nodo(producto);
                     
 
@@ -54,9 +60,7 @@ public class App {
                     break;
 
                     case 2:
-                    System.out.println("consultar nodo");
-
-                    nodo1.toString();
+                   
 
                     
 
