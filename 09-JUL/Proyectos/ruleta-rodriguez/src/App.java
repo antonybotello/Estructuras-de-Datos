@@ -5,7 +5,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Jugador> jugadores = new ArrayList<>();
-        Ruleta ruleta = new Ruleta();
+        ruleta ruleta = new ruleta();
 
         System.out.println("Bienvenido a la ruleta !");
 
@@ -23,7 +23,7 @@ public class App {
         for (Jugador jugador : jugadores) {
             System.out.println("Jugador " + jugador.getNombre() + " ingrese su apuesta:");
             System.out.println(
-                    "Ingrese el tipo de apuesta que desea realizar(Pasa, Falta, Par, Impar, Primera Docena, Segunda Docena, Tercera Docena):");
+                    "Ingrese el tipo de apuesta que desea realizar(Pasa, Falta, Par, Impar, Primera Docena, Segunda Docena, Tercera Docena o inserte un número):");
             String tipoApuesta = scanner.nextLine();
             System.out.println("Ingrese el monto de la apuesta:");
             int monto = scanner.nextInt();
@@ -50,4 +50,3 @@ public class App {
         scanner.close();
     }
 }
-

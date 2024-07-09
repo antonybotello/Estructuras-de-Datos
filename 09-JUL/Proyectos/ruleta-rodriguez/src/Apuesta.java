@@ -18,23 +18,29 @@ public class Apuesta {
     }
 
     public boolean verificarApuesta(int numeroGenerado) {
-        switch (tipoApuesta) {
-            case "Pasa":
-                return numeroGenerado >= 19 && numeroGenerado <= 36;
-            case "Falta":
-                return numeroGenerado >= 1 && numeroGenerado <= 18;
-            case "Par":
-                return numeroGenerado % 2 == 0;
-            case "Impar":
-                return numeroGenerado % 2 != 0;
-            case "Primera Docena":
-                return numeroGenerado >= 1 && numeroGenerado <= 12;
-            case "Segunda Docena":
-                return numeroGenerado >= 13 && numeroGenerado <= 24;
-            case "Tercera Docena":
-                return numeroGenerado >= 25 && numeroGenerado <= 36;
-            default:
+        tipoApuesta.toLowerCase();
+        if (tipoApuesta.equals("pasa")) {
+            return numeroGenerado >= 19 && numeroGenerado <= 36;
+        } else if (tipoApuesta.equals("falta")) {
+            return numeroGenerado >= 1 && numeroGenerado <= 18;
+        } else if (tipoApuesta.equals("par")) {
+            return numeroGenerado % 2 == 0;
+        } else if (tipoApuesta.equals("impar")) {
+            return numeroGenerado % 2 != 0;
+        } else if (tipoApuesta.equals("primera docena")) {
+            return numeroGenerado >= 1 && numeroGenerado <= 12;
+        } else if (tipoApuesta.equals("segunda docena")) {
+            return numeroGenerado >= 13 && numeroGenerado <= 24;
+        } else if (tipoApuesta.equals("tercera docena")) {
+            return numeroGenerado >= 25 && numeroGenerado <= 36;
+        } else {
+            try {
+                int numeroApuesta = Integer.parseInt(tipoApuesta);
+                return numeroGenerado == numeroApuesta;
+            } catch (NumberFormatException e) {
                 return false;
+            }
         }
     }
+
 }

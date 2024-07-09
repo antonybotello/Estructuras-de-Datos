@@ -7,7 +7,7 @@ public class ruleta {
             1, 20, 14, 31, 26, 9, 22, 18, 29, 7, 28, 12, 35, 3 };
     private int numeroGenerado;
 
-    public Ruleta() {
+    public ruleta() {
         cabeza = null;
         construirRuleta();
     }
