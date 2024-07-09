@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class App {
@@ -7,9 +6,11 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Lista lista = new Lista();
-        Nodo nodo = new Nodo();
-
-        List<Producto> productos = new ArrayList<>();
+        /*
+         * Nodo nodo = new Nodo();
+         * 
+         * List<Producto> productos = new ArrayList<>();
+         */
 
         System.out.println("rama de mariana");
 
@@ -85,6 +86,7 @@ public class App {
             }
 
         }
+        entrada.close();
 
     }
 }
