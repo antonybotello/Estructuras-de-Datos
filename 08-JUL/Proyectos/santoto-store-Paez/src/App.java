@@ -7,6 +7,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         boolean opcion = true;
+        int cantidad;
 
         while (opcion) {
             System.out.println("################   SANTOTO STORE- MENÚ   ################");
@@ -35,16 +36,18 @@ public class App {
                         String descripcion = teclado.next();
 
                         System.out.println("Cantidad del elemento a agregar: ");
-                        int cantidad = teclado.nextInt();
+                        cantidad = teclado.nextInt();
 
                         System.out.println("Unidad de medida del elemento a agregar: ");
                         String unidadMedida = teclado.next();
 
                         System.out.println("Valor unitario del elemento a agregar: ");
-                        int valorUnitario = teclado.nextInt();
+                        int valorUnitario = tseclado.nextInt();
 
                         ingresar(new Producto(id, nombre, descripcion, cantidad, unidadMedida, valorUnitario));
+
                     }
+
                     break;
 
                 case 2:
