@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class App {
     private static Nodo primero;
     private static Nodo ultimo;
@@ -8,6 +9,8 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
+
+    
 
         int opcion = 9;
 
@@ -26,108 +29,53 @@ public class App {
             teclado.nextLine();
             switch (opcion) {
                 case 1:
+                System.out.print("Ingrese el nombre del producto: ");
+                String nombre = scanner.nextLine();
+                System.out.print("Ingrese el precio del producto: ");
+                double precio = scanner.nextDouble();
+                scanner.nextLine();  // Limpiar el buffer
 
-            
-                    Producto producto = new Producto(nombre, descripción, cantidad, unidadMedida, valorUnitario);
-                    agregarProducto(producto);
+                Producto producto = new Producto(nombre, precio);
+                agregarProducto(producto);
+                break;
 
-                    break;
+            case 2:
+                System.out.print("Ingrese el nombre del producto que desea buscar: ");
+                String nombreBuscar = scanner.nextLine();
+                Producto productoEncontrado = buscarProducto(nombreBuscar);
+                if (productoEncontrado != null) {
+                    System.out.println("Producto encontrado: Nombre: " + productoEncontrado.getNombre() + ", Precio: " + productoEncontrado.getPrecio());
+                } else {
+                    System.out.println("Producto no encontrado.");
+                }
+                break;
 
-                case 2:
-                    System.out.print("Ingrese el nombre del producto que desea buscar: ");
-                    String nombreBuscar = teclado.nextLine();
-                    Producto productoEncontrado = buscarProducto(nombreBuscar);
-                    if (productoEncontrado != null) {
-                        S ystem.out.p
+            case 3:
+                System.out.println("Lista de productos:");
+                mostrarProductos();
+                break;
 
-                                 + ",
+            case 4:
+                System.out.print("Ingrese el nombre del producto que desea eliminar: ");
+                String nombreEliminar = scanner.nextLine();
+                boolean resultado = eliminarProducto(nombreEliminar);
+                if (resultado) {
+                    System.out.println("Producto eliminado.");
+                } else {
+                    System.out.println("Producto no encontrado.");
+                }
+                break;
 
-                    break ;
+            case 5:
+                double suma = sumarPrecios();
+                System.out.println("La suma de los precios de todos los productos es: " + suma);
+                break;
 
-                    if (r esultado) {
-
-                    break ;
-
-                    
-
-                    break;
-
-
-                    break;
-            }
+                default:
 
         }
-
-                    = nuevo;
-            ultimo = nuevo;
-        } else {
-            ultimo.setEnlace(nuevo);
-
-                    l != null) {
-            Producto producto = actual.getProducto();
-            System.out.println("Nombre: " + producto.getNombreProducto() + ", Descripción: " + producto.getDescripción()
-                    + ", Cantidad: " + pr
-
-                    = primero;
-        while (actual != null) {
-            if (actual.getProducto().getNombreProducto().equalsIgnoreCase(nombre)) {
-                return actual.getProducto();
-     
-
-        return null; // Si no se encuentra el producto
     }
 
-    public static boolean eliminarProducto(String nombre) {
-        if (primero == null) {
-            return false; // La lista está vacía
-        }
 
-
-            } 
-            return true;
-        }  
-   
-        Nodo actual   = primero;
-        while (act u al.get
-        if (actu
-     
-
-     
-            }
-            a c tual = actual.getEnlace();
-        }   
-        return fals e ; // Producto no encontrado
-    }  
-        
-            c double sumarPrecios() 
-     
-
-     
-            actual = actual.getEnlace();
-        }  
-        return suma ;  
-    }  
-}  
-        
-            
-     
-
-     
-             
-        
-            
-              
-            
-        
-    
-
-
-              
-        
-            
-              
-            
-        
-    
-
+    }
     
