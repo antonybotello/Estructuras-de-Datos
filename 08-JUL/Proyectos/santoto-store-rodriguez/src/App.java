@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class App {
     private static Nodo primero;
     private static Nodo ultimo;
@@ -8,6 +9,8 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
+
+    
 
         int opcion = 9;
 
@@ -41,7 +44,16 @@ public class App {
                     Producto producto = new Producto(nombre, descripción, cantidad, unidadMedida, valorUnitario);
                     agregarProducto(producto);
 
-                    break;
+            case 2:
+                System.out.print("Ingrese el nombre del producto que desea buscar: ");
+                String nombreBuscar = scanner.nextLine();
+                Producto productoEncontrado = buscarProducto(nombreBuscar);
+                if (productoEncontrado != null) {
+                    System.out.println("Producto encontrado: Nombre: " + productoEncontrado.getNombre() + ", Precio: " + productoEncontrado.getPrecio());
+                } else {
+                    System.out.println("Producto no encontrado.");
+                }
+                break;
 
                 case 2:
                     System.out.print("Ingrese el nombre del producto que desea buscar: ");
