@@ -26,18 +26,8 @@ public class App {
             teclado.nextLine();
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese el nombre del producto: ");
-                    String nombre = teclado.nextLine();
-                    System.out.print("Ingrese la descripción del producto: ");
-                    String descripción = teclado.nextLine();
-                    System.out.print("Ingrese la cantidad del producto: ");
-                    int cantidad = teclado.nextInt();
-                    System.out.print("Ingrese la unidad de medida del producto: ");
-                    int unidadMedida = teclado.nextInt();
-                    System.out.print("Ingrese el valor del producto: ");
-                    int valorUnitario = teclado.nextInt();
-                    teclado.nextLine();
 
+            
                     Producto producto = new Producto(nombre, descripción, cantidad, unidadMedida, valorUnitario);
                     agregarProducto(producto);
 
@@ -48,80 +38,42 @@ public class App {
                     String nombreBuscar = teclado.nextLine();
                     Producto productoEncontrado = buscarProducto(nombreBuscar);
                     if (productoEncontrado != null) {
-                        System.out.println("Producto encontrado: Nombre:" + productoEncontrado.getNombreProducto()
-                                + ", Descripción: " + productoEncontrado.getDescripción()
-                                + ", Cantidad: " + productoEncontrado.getCantidad() + ", Unidad de Medida: "
-                                + productoEncontrado.getUnidadMedida()
-                                + ", Valor Unitario: " + productoEncontrado.getValorUnitario());
-                    } else {
-                        System.out.println("Producto no encontrado.");
-                    }
+                        S ystem.out.p
 
-                    break;
-                case 3:
-                    System.out.print("Ingrese el nombre del producto que desea eliminar: ");
-                    String nombreParaEliminar = teclado.nextLine();
-                    boolean resultado = eliminarProducto(nombreParaEliminar);
-                    if (resultado) {
-                        System.out.println("Producto eliminado.");
-                    } else {
-                        System.out.println("Producto no encontrado.");
-                    }
-                    break;
+                                 + ",
 
-                case 4:
-                    double suma = sumarPrecios();
-                    System.out.println("La suma de los precios de todos los productos es: " + suma);
+                    break ;
 
-                    break;
-                case 5:
+                    if (r esultado) {
 
-                    System.out.println("Lista de productos:");
-                    mostrarProductos();
+                    break ;
+
+                    
 
                     break;
 
-                case 0:
-                    System.out.println("Hasta pronto!");
-                    break;
 
-                default:
                     break;
             }
 
         }
-    }
 
-    public static void agregarProducto(Producto producto) {
-        Nodo nuevo = new Nodo(producto);
-        if (primero == null) {
-            primero = nuevo;
+                    = nuevo;
             ultimo = nuevo;
         } else {
             ultimo.setEnlace(nuevo);
-            ultimo = nuevo;
-        }
-    }
 
-    public static void mostrarProductos() {
-        Nodo actual = primero;
-        while (actual != null) {
+                    l != null) {
             Producto producto = actual.getProducto();
             System.out.println("Nombre: " + producto.getNombreProducto() + ", Descripción: " + producto.getDescripción()
-                    + ", Cantidad: " + producto.getCantidad() + ", Unidad de Medida: " + producto.getUnidadMedida()
-                    + ", Valor Unitario: " + producto.getValorUnitario());
-            actual = actual.getEnlace();
-        }
-    }
+                    + ", Cantidad: " + pr
 
-    public static Producto buscarProducto(String nombre) {
-        Nodo actual = primero;
+                    = primero;
         while (actual != null) {
             if (actual.getProducto().getNombreProducto().equalsIgnoreCase(nombre)) {
                 return actual.getProducto();
-            }
-            actual = actual.getEnlace();
-        }
+     
+
         return null; // Si no se encuentra el producto
     }
 
@@ -130,35 +82,52 @@ public class App {
             return false; // La lista está vacía
         }
 
-        if (primero.getProducto().getNombreProducto().equalsIgnoreCase(nombre)) {
-            primero = primero.getEnlace();
-            if (primero == null) {
-                ultimo = null;
-            }
+
+            } 
             return true;
-        }
+        }  
+   
+        Nodo actual   = primero;
+        while (act u al.get
+        if (actu
+     
 
-        Nodo actual = primero;
-        while (actual.getEnlace() != null) {
-            if (actual.getEnlace().getProducto().getNombreProducto().equalsIgnoreCase(nombre)) {
-                actual.setEnlace(actual.getEnlace().getEnlace());
-                if (actual.getEnlace() == null) {
-                    ultimo = actual;
-                }
-                return true;
+     
             }
-            actual = actual.getEnlace();
-        }
-        return false; // Producto no encontrado
-    }
+            a c tual = actual.getEnlace();
+        }   
+        return fals e ; // Producto no encontrado
+    }  
+        
+            c double sumarPrecios() 
+     
 
-    public static double sumarPrecios() {
-        double suma = 0;
-        Nodo actual = primero;
-        while (actual != null) {
-            suma += actual.getProducto().getValorUnitario();
+     
             actual = actual.getEnlace();
-        }
-        return suma;
-    }
-}
+        }  
+        return suma ;  
+    }  
+}  
+        
+            
+     
+
+     
+             
+        
+            
+              
+            
+        
+    
+
+
+              
+        
+            
+              
+            
+        
+    
+
+    
