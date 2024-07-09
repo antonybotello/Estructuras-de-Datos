@@ -2,9 +2,6 @@ public class Nodo {
 
     Producto producto;
     Nodo siguiente;
-    
-
-
 
     public Nodo() {
     }
@@ -14,16 +11,16 @@ public class Nodo {
         this.siguiente = null;
     }
 
-    public Producto obtenerValor() {
+    public Producto getProducto() {
         return producto;
     }
 
-    public void enlazarSiguiente(Nodo nodo) {
+    public void setSiguiente(Nodo nodo) {
         siguiente = nodo;
 
     }
 
-    public Nodo obtenerSiguiente() {
+    public Nodo getSiguiente() {
         return siguiente;
     }
 
