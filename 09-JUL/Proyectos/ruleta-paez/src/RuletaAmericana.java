@@ -46,9 +46,10 @@ public class RuletaAmericana {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
 
+        // Agregar jugadores
         System.out.print("Ingrese el número de jugadores (máximo 8): ");
         int numJugadores = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // Consumir la nueva línea
 
         for (int i = 0; i < numJugadores; i++) {
             System.out.print("Ingrese el nombre del jugador " + (i + 1) + ": ");
@@ -57,7 +58,7 @@ public class RuletaAmericana {
             String colorFichas = scanner.nextLine();
             System.out.print("Ingrese la cantidad inicial de fichas para el jugador " + (i + 1) + ": ");
             int fichasIniciales = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consumir la nueva línea
 
             Jugador jugador = new Jugador(nombre, colorFichas, fichasIniciales);
             juego.agregarJugador(jugador);
@@ -76,39 +77,29 @@ public class RuletaAmericana {
             System.out.println("9. Salir");
             System.out.print("Elija su apuesta: ");
             int opcion = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consumir la nueva línea
 
             switch (opcion) {
                 case 1:
-
+                    realizarApuesta(juego, scanner, "Pasa", 19, 36);
+                    break;
                 case 2:
+                    realizarApuesta(juego, scanner, "Falta", 1, 18);
+                    break;
                 case 3:
+                    realizarApuestaParImpar(juego, scanner, "Par");
+                    break;
                 case 4:
+                    realizarApuestaParImpar(juego, scanner, "Impar");
+                    break;
                 case 5:
+                    realizarApuesta(juego, scanner, "Primera docena", 1, 12);
+                    break;
                 case 6:
+                    realizarApuesta(juego, scanner, "Segunda docena", 13, 24);
+                    break;
                 case 7:
-                    System.out.print("Ingrese el nombre del jugador: ");
-                    String nombre = scanner.nextLine();
-                    Jugador jugador = buscarJugadorPorNombre(juego.jugadores, nombre);
-                    if (jugador != null) {
-                        System.out.print("Ingrese la cantidad de fichas a apostar: ");
-                        int cantidad = scanner.nextInt();
-                        scanner.nextLine(); // Consumir la nueva línea
-                        if (jugador.getFichas() >= cantidad) {
-                            jugador.apostar(cantidad);
-                            int resultado = juego.girarRuleta();
-                            if (evaluarApuesta(resultado, opcion)) {
-                                jugador.ganar(cantidad * 2);
-                                System.out.println("¡" + jugador.getNombre() + " ganó! El número es: " + resultado);
-                            } else {
-                                System.out.println("Perdiste. El número es: " + resultado);
-                            }
-                        } else {
-                            System.out.println("No tienes suficientes fichas para esta apuesta.");
-                        }
-                    } else {
-                        System.out.println("Jugador no encontrado.");
-                    }
+                    realizarApuesta(juego, scanner, "Tercera docena", 25, 36);
                     break;
                 case 8:
                     juego.mostrarNumeros();
@@ -133,24 +124,55 @@ public class RuletaAmericana {
         return null;
     }
 
-    public static boolean evaluarApuesta(int resultado, int opcion) {
-        switch (opcion) {
-            case 1:
-                return resultado >= 19 && resultado <= 36;
-            case 2:
-                return resultado >= 1 && resultado <= 18;
-            case 3:
-                return resultado % 2 == 0;
-            case 4:
-                return resultado % 2 != 0;
-            case 5:
-                return resultado >= 1 && resultado <= 12;
-            case 6:
-                return resultado >= 13 && resultado <= 24;
-            case 7:
-                return resultado >= 25 && resultado <= 36;
-            default:
-                return false;
+    public static void realizarApuesta(RuletaAmericana juego, Scanner scanner, String tipoApuesta, int limiteInferior,
+            int limiteSuperior) {
+        System.out.print("Ingrese el nombre del jugador: ");
+        String nombre = scanner.nextLine();
+        Jugador jugador = buscarJugadorPorNombre(juego.jugadores, nombre);
+        if (jugador != null) {
+            System.out.print("Ingrese la cantidad de fichas a apostar: ");
+            int cantidad = scanner.nextInt();
+            scanner.nextLine(); // Consumir la nueva línea
+            if (jugador.getFichas() >= cantidad) {
+                jugador.apostar(cantidad);
+                int resultado = juego.girarRuleta();
+                if (resultado >= limiteInferior && resultado <= limiteSuperior) {
+                    jugador.ganar(cantidad * 2);
+                    System.out.println("¡" + jugador.getNombre() + " ganó! El número es: " + resultado);
+                } else {
+                    System.out.println("Perdiste. El número es: " + resultado);
+                }
+            } else {
+                System.out.println("No tienes suficientes fichas para esta apuesta.");
+            }
+        } else {
+            System.out.println("Jugador no encontrado.");
+        }
+    }
+
+    public static void realizarApuestaParImpar(RuletaAmericana juego, Scanner scanner, String tipoApuesta) {
+        System.out.print("Ingrese el nombre del jugador: ");
+        String nombre = scanner.nextLine();
+        Jugador jugador = buscarJugadorPorNombre(juego.jugadores, nombre);
+        if (jugador != null) {
+            System.out.print("Ingrese la cantidad de fichas a apostar: ");
+            int cantidad = scanner.nextInt();
+            scanner.nextLine(); // Consumir la nueva línea
+            if (jugador.getFichas() >= cantidad) {
+                jugador.apostar(cantidad);
+                int resultado = juego.girarRuleta();
+                if ((tipoApuesta.equals("Par") && resultado % 2 == 0)
+                        || (tipoApuesta.equals("Impar") && resultado % 2 != 0)) {
+                    jugador.ganar(cantidad * 2);
+                    System.out.println("¡" + jugador.getNombre() + " ganó! El número es: " + resultado);
+                } else {
+                    System.out.println("Perdiste. El número es: " + resultado);
+                }
+            } else {
+                System.out.println("No tienes suficientes fichas para esta apuesta.");
+            }
+        } else {
+            System.out.println("Jugador no encontrado.");
         }
     }
 }
