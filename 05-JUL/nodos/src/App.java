@@ -1,9 +1,11 @@
 import java.util.List;
+
 import java.util.Scanner;
 
 public class App {
-    private static Nodo primero;
-    private static Nodo ultimo;
+
+    private Nodo primero;
+    private Nodo ultimo;
     static Scanner teclado = new Scanner(System.in);
     static Lista lst;
 
@@ -26,82 +28,55 @@ public class App {
 
             opcion = teclado.nextInt();
 
-            
-
             switch (opcion) {
-                case 1: // Escriba su nombre
+                case 1 -> {
+                    // Felipe Gonzalez
                     crearLista();
 
                     System.out.println("### Se creo la lista ###");
+                }
+                case 2 -> {
+                }
+                case 3 -> {
+                }
 
-                    break;
+                case 4 -> {
+                    //Samuel Vega
 
-                case 2:
-                    imprimirLista(lst);
+                    System.out.println("Digite el dato a agregar");
+                    int dato = teclado.nextInt();
 
-                    break;
-                case 3: // Julian Roa
-                    System.out.println("Ingrese un dato para agregar a la lista");
-                    int ingresado = teclado.nextInt();
-
-                    anexarInicioLista(ingresado);
-                    break;
-
-                case 4://Samuel Vega
-
-                
-
-                    System.out.println("### Se creo la algo ###");
-                
-                    
-                    break;
-                case 5: // Cristian Murcia
+                    Lista list = new Lista();
+                    list.anexarFinalList(dato);
+                }
+                case 5 -> {
+                    // Cristian Murcia
 
                     System.out.print("Ingrese el elemento a buscar: ");
                     int infoBuscar = teclado.nextInt();
                     buscarElemento(infoBuscar);
+                }
+                case 6 -> {
+                }
+                case 7 -> {
+                }
+                case 0 -> {
+                }
 
-                    break;
-                case 6:// laura
-                    borrarNodoInicio();
-                    System.out.println("Se elimino con exito el primer nodo");
-                    break;
-                case 7:// Karol Acuña
-
-                    /* eliminacion edl nodo al final de la lista */
-                    System.out.println("eliminar nodo ssss");
-                    eliminarNodoFinal(1);
-                    
-
-
-                    
-
-                    break;
-                case 0:
-
-                    break;
-
-                default:
-                    break;
+                default -> {
+                }
             }
 
         }
     }
 
-    public static void anexarInicioLista(int info) {
+    public void anexarInicioLista(int info) {
         Nodo nuevo = new Nodo(info);
-        if (primero == null) {
-            primero = nuevo;
-            ultimo = nuevo;
-        } else {
-            nuevo.setEnlace(primero);
-            primero = nuevo;
-        }
-
+        nuevo.setEnlace(primero);
+        primero = nuevo;
     }
 
-
-    public static void eliminarNodoFinal(int info) {
+    public void anexarFinalLista(int info) {
         Nodo nuevo = new Nodo(info);
         ultimo.setEnlace(nuevo);
         ultimo = nuevo;
@@ -131,7 +106,7 @@ public class App {
         }
     }
 
-    
+
 
     public void anexarFinalList (int dato){
         Nodo nuevo;
@@ -165,30 +140,9 @@ public class App {
         }
     }
 
+
     public static void crearLista() {
         lst = new Lista();
 
-        Nodo temp = primero;
-        Nodo aux = primero;
-        while (temp.getEnlace() != null) {
-            aux = temp;
-            temp = temp.getEnlace();
-        }
-        ultimo = aux;
-        ultimo.setEnlace(null);
-    }
-
-    public static void imprimirLista(Lista lista) {
-        Nodo p = lista.getPrimero();
-        if (p == null) {
-            System.out.println("La lista está vacía.");
-            return;
-        }
-
-        while (p != null) {
-            System.out.print(p.getInfo() + " ");
-            p = p.getEnlace();
-        }
-        System.out.println();
     }
 }
