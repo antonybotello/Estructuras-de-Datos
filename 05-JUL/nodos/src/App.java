@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -146,6 +145,7 @@ public class App {
                 ultimo.setEnlace(null);
             }
         }
+        
     public static boolean esVacia() {
         return (primero == null);
     }
