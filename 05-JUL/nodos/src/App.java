@@ -1,3 +1,5 @@
+import java.util.List;
+
 import java.util.Scanner;
 
 public class App {
@@ -103,6 +105,41 @@ public class App {
             System.out.println("El dato " + info + " no se encontró en la lista.");
         }
     }
+
+
+
+    public void anexarFinalList (int dato){
+        Nodo nuevo;
+        nuevo=new Nodo(dato);
+        if (primero==null){
+            primero=nuevo;
+            ultimo=nuevo;
+            } else {
+                ultimo.setEnlace(nuevo);
+                ultimo=nuevo;
+                ultimo.setEnlace(null);
+            }
+        }
+        
+    public static boolean esVacia() {
+        return (primero == null);
+    }
+
+    public static boolean borrarNodoInicio() {
+        if (esVacia())
+            return false;
+        if (primero.getEnlace() == null) {
+            primero = null;
+            ultimo = null;
+            return false;
+        } else {
+            Nodo temp = primero;
+            primero = primero.getEnlace();
+            temp.setEnlace(null);
+            return true;
+        }
+    }
+
 
     public static void crearLista() {
         lst = new Lista();
