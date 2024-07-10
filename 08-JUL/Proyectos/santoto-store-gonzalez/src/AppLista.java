@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class AppLista {
   private Lista lst;
