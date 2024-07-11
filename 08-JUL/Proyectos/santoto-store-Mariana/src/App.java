@@ -24,7 +24,7 @@ public class App {
             System.out.println("Seleccione una opción del menú");
             System.out.println("1. ingresar Producto");
             System.out.println("2. consultar nodo");
-            System.out.println("3. retirar nodo ");
+            System.out.println("3. retirar producto ");
             System.out.println("4. reportar nodo");
             System.out.println("5. totalizar noto");
             System.out.println("0. SALIR");
