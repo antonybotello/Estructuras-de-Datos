@@ -104,6 +104,9 @@ public class App {
         }
     }
 
+
+
+
     public static void crearLista() {
         lst = new Lista();
 
