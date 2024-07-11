@@ -1,0 +1,11 @@
+digraph grafica{
+rankdir=TB;
+node [shape = record, style=filled, fillcolor=seashell2];
+nodo1 [ label ="<C0>|antony|<C1>"];
+nodo4 [ label ="<C0>|laura|<C1>"];
+nodo6 [ label ="juliana"];
+nodo4:C0->nodo6
+nodo5 [ label ="murcia"];
+nodo4:C1->nodo5
+nodo1:C1->nodo4
+}

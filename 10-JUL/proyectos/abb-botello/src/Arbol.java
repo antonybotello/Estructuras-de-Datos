@@ -1,4 +1,4 @@
-public class ArbolBinarioBusqueda {
+public class Arbol {
     /**
      * Nodo raíz del árbol.
      */
@@ -7,7 +7,7 @@ public class ArbolBinarioBusqueda {
      * Constructor de la clase, incialmente la raíz es nula porque el árbol
      * está vacío.
      */
-    public ArbolBinarioBusqueda() {
+    public Arbol() {
         raiz=null;
     }
     /**

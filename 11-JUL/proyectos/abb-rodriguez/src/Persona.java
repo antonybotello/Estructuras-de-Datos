@@ -1,21 +1,23 @@
+import java.sql.Date;
+
 public class Persona {
-    private String Nombre;
+    private String nombre; // Cambié "Nombre" a "nombre" para seguir la convención de nombres en Java.
     private Date fechaNacimiento;
 
     public Persona() {
     }
 
     public Persona(String nombre, Date fechaNacimiento) {
-        Nombre = nombre;
+        this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public Date getFechaNacimiento() {
