@@ -2,6 +2,10 @@ public class Nodo {
     private int info;
     private Nodo enlace;
     public Nodo() {
+    public Nodo(int info, Nodo enlace) {
+        this.info = info;
+        this.enlace = enlace;
+    }
         this.info=0;
         this.enlace= null;
     }
