@@ -77,21 +77,12 @@ public class Nodo {
 
     private String getCodigoGraphviz() {
         return "digraph grafica{\n" +
-                "rankdir=TB;\n" +
+                "rankdir=BT;\n" + // Cambié la dirección a "BT" para que la raíz esté arriba
                 "node [shape = record, style=filled, fillcolor=seashell2];\n" +
                 getCodigoInterno() +
                 "}\n";
     }
 
-    /**
-     * Genera el código interior de graphviz, este método tiene la
-     * particularpersonaad
-     * de ser recursivo, esto porque recorrer un árbol de forma recursiva es
-     * bastante
-     * sencillo y reduce el código conspersonaerablemente.
-     * 
-     * @return
-     */
     private String getCodigoInterno() {
         String etiqueta;
         if (izqNodo == null && derNodo == null) {
