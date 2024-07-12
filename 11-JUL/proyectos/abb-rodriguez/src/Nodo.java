@@ -77,7 +77,7 @@ public class Nodo {
 
     private String getCodigoGraphviz() {
         return "digraph grafica{\n" +
-                "rankdir=BT;\n" + // Cambié la dirección a "BT" para que la raíz esté arriba
+                "rankdir=TB;\n" + // Cambié la dirección a "BT" para que la raíz esté arriba
                 "node [shape = record, style=filled, fillcolor=seashell2];\n" +
                 getCodigoInterno() +
                 "}\n";

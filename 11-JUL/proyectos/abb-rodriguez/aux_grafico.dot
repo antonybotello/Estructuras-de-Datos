@@ -1,13 +1,15 @@
 digraph grafica{
-rankdir=BT;
+rankdir=TB;
 node [shape = record, style=filled, fillcolor=seashell2];
-nodo1 [ label ="<C0>|vero|<C1>"];
-nodo4 [ label ="<C0>|laura|<C1>"];
-nodo5 [ label ="<C0>|julian|<C1>"];
-nodo7 [ label ="felipe"];
-nodo5:C0->nodo7
-nodo6 [ label ="juliana"];
-nodo5:C1->nodo6
+nodo1 [ label ="<C0>|antony|<C1>"];
+nodo4 [ label ="<C0>|2005-10-02|<C1>"];
+nodo5 [ label ="laura"];
 nodo4:C0->nodo5
+nodo6 [ label ="<C0>|julian|<C1>"];
+nodo8 [ label ="juliana"];
+nodo6:C1->nodo8
+nodo4:C1->nodo6
 nodo1:C0->nodo4
+nodo7 [ label ="sara"];
+nodo1:C1->nodo7
 }

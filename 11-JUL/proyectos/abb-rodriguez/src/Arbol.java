@@ -29,19 +29,19 @@ public class Arbol {
         } else {
             p = raiz;
             q = p;
-            while (q != null && !p.getPersona().getNombre().equals(persona.getNombre())) {
+            while (q != null && !p.getPersona().getFechaNacimiento().equals(persona.getFechaNacimiento())) {
                 p = q;
-                if (persona.getNombre().compareTo(p.getPersona().getNombre()) < 0) {
+                if (persona.getFechaNacimiento().compareTo(p.getPersona().getFechaNacimiento()) > 0) {
                     q = q.getIzqNodo();
                 } else {
                     q = q.getDerNodo();
                 }
-                if (p.getPersona().getNombre().equals(persona.getNombre())) {
+                if (p.getPersona().getFechaNacimiento().equals(persona.getFechaNacimiento())) {
                     System.out.println("Dato repetido");
                     return;
                 }
             }
-            if (persona.getNombre().compareTo(p.getPersona().getNombre()) < 0) {
+            if (persona.getFechaNacimiento().compareTo(p.getPersona().getFechaNacimiento()) > 0) {
                 insertarIzquierda(p, persona);
             } else {
                 insertarDerecha(p, persona);
