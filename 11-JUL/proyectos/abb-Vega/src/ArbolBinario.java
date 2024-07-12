@@ -1,8 +1,9 @@
 
 public class ArbolBinario {
 
+    private int id;  
     Nodo raiz;
-
+    
     public ArbolBinario(Estudiante raiz) {
         this.raiz = null;
     }
@@ -61,8 +62,9 @@ public class ArbolBinario {
         }
     }
     
-    public void inorden() {
+    public String inorden() {
         inordenR(raiz);
+        return null;
     }
 
     private void inordenR(Nodo raiz) {
@@ -72,5 +74,7 @@ public class ArbolBinario {
             inordenR(raiz.derecho);
         }
     }
+
+   
 
 }

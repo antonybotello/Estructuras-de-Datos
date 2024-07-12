@@ -11,6 +11,7 @@ public class App {
 
         while (true) {
 
+
             System.out.println("-----------------------MENÚ---------------------");
             System.out.println("----------     1.Insertar estudiante  --------------");
             System.out.println("----------     2.Inorden              --------------");
@@ -32,7 +33,9 @@ public class App {
                     System.out.println("El año de nacimiento: ");
                     int año = myTeclado.nextInt();
 
-                    Estudiante estudiante = new Estudiante(nombre, dia, mes, año);
+                    
+                 Estudiante estudiante = new Estudiante(nombre, dia, mes, año);
+
                     estudiante.crearfecha(dia, mes, año);
                     arbolBinario.insertar(estudiante);
                     System.out.println("Estudiante almacenado!!");
@@ -40,6 +43,7 @@ public class App {
                 case 2 -> {
                     System.out.println("InOrden: ");
                     arbolBinario.inorden();
+                    arbolBinario.raiz.graficar(arbolBinario.inorden());
                 }
                 case 3 -> {
                     System.out.println("PostOrden: ");
@@ -48,7 +52,7 @@ public class App {
                 case 4 -> {
                     System.out.println("PreOrden: ");
                     arbolBinario.preOrden();
-                    
+
                 }
 
                 default -> {
