@@ -42,7 +42,7 @@ public class App {
                 }
 
                 case 4 -> {
-                    // Samuel Vega
+                    //Samuel Vega
 
                     System.out.println("Digite el dato a agregar");
                     int dato = teclado.nextInt();
@@ -107,19 +107,21 @@ public class App {
         }
     }
 
-    public void anexarFinalList(int dato) {
-        Nodo nuevo;
-        nuevo = new Nodo(dato);
-        if (primero == null) {
-            primero = nuevo;
-            ultimo = nuevo;
-        } else {
-            ultimo.setEnlace(nuevo);
-            ultimo = nuevo;
-            ultimo.setEnlace(null);
-        }
-    }
 
+
+    public void anexarFinalList (int dato){
+        Nodo nuevo;
+        nuevo=new Nodo(dato);
+        if (primero==null){
+            primero=nuevo;
+            ultimo=nuevo;
+            } else {
+                ultimo.setEnlace(nuevo);
+                ultimo=nuevo;
+                ultimo.setEnlace(null);
+            }
+        }
+        
     public static boolean esVacia() {
         return (primero == null);
     }
@@ -138,6 +140,7 @@ public class App {
             return true;
         }
     }
+
 
     public static void crearLista() {
         lst = new Lista();
