@@ -1,4 +1,4 @@
-public class Nodo {
+class Nodo {
     int dato;
     Nodo izquierda, derecha, padre;
     int balance;
