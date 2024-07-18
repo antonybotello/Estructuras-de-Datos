@@ -1,4 +1,3 @@
-
 public class ArbolBinario {
 
     Nodo raiz;
@@ -11,44 +10,57 @@ public class ArbolBinario {
         raiz = insertarRec(raiz, estudiante);
     }
 
-    private Nodo insertarRec(Nodo nodo, Estudiante estudiante) {
-        if (nodo == null) {
-            return new Nodo(estudiante);
+    private Nodo insertarRec(Nodo raizActual, Estudiante estudiante) {
+        if (raizActual == null) {
+            raizActual = new Nodo(estudiante);
+            return raizActual;
         }
 
-        // Insertar en el subárbol izquierdo si el estudiante es "menor"
-        if (estudiante.getAño() < ((Estudiante) nodo.estudiante).getAño()) {
-            nodo.izquierdo = insertarRec(nodo.izquierdo, estudiante);
-        } else if (estudiante.getAño() > ((Estudiante) nodo.estudiante).getAño()) {
-            // Insertar en el subárbol derecho si el estudiante es "mayor"
-            nodo.derecho = insertarRec(nodo.derecho, estudiante);
+        // Insertar en el subárbol izquierdo si el estudiante es menor
+        if (estudiante.compararEstudiante(raizActual.estudiante) == raizActual.estudiante) {
+            raizActual.izquierda = insertarRec(raizActual.izquierda, estudiante);
         } else {
-            // En caso de igualdad por año, comparar por mes y día (ejemplo sencillo)
-            if (estudiante.getMes() < ((Estudiante) nodo.estudiante).getMes()) {
-                nodo.izquierdo = insertarRec(nodo.izquierdo, estudiante);
-            } else if (estudiante.getMes() > ((Estudiante) nodo.estudiante).getMes()) {
-                nodo.derecho = insertarRec(nodo.derecho, estudiante);
-            } else {
-                if (estudiante.getDia() < ((Estudiante) nodo.estudiante).getDia()) {
-                    nodo.izquierdo = insertarRec(nodo.izquierdo, estudiante);
-                } else {
-                    nodo.derecho = insertarRec(nodo.derecho, estudiante);
-                }
-            }
+            // Insertar en el subárbol derecho si el estudiante es mayor o igual
+            raizActual.derecha = insertarRec(raizActual.derecha, estudiante);
         }
 
-        return nodo;
-
+        return raizActual;
     }
 
-    public void recorridoInOrder(Nodo nodo) {
-        if (nodo != null) {
-            recorridoInOrder(nodo.izquierdo);
-            System.out.println("Nombre: " + ((Estudiante) nodo.estudiante).getNombre() +
-                    ", Fecha de Nacimiento: " + ((Estudiante) nodo.estudiante).getDia() + "/" +
-                    ((Estudiante) nodo.estudiante).getMes() + "/" +
-                    ((Estudiante) nodo.estudiante).getAño());
-            recorridoInOrder(nodo.derecho);
+    // Método para buscar un estudiante en el árbol
+    public Nodo buscar(Estudiante estudiante) {
+        return buscarRec(raiz, estudiante);
+    }
+
+    // Método recursivo para buscar un estudiante en el árbol
+    private Nodo buscarRec(Nodo raizActual, Estudiante estudiante) {
+        if (raizActual == null || estudiante.compararEstudiante(raizActual.estudiante) == raizActual.estudiante) {
+            return raizActual;
+        }
+
+        // Buscar en el subárbol izquierdo si el estudiante es menor
+        if (estudiante.compararEstudiante(raizActual.estudiante) == raizActual.estudiante) {
+            return buscarRec(raizActual.izquierda, estudiante);
+        } else {
+            // Buscar en el subárbol derecho si el estudiante es mayor
+            return buscarRec(raizActual.derecha, estudiante);
+        }
+    }
+
+    // Otros métodos que se podrían implementar: eliminar, imprimir, recorrer
+    // (inorder, preorder, postorder), etc.
+
+    // Método para imprimir el árbol en orden (inorder traversal)
+    public void imprimirInOrder() {
+        imprimirInOrderRec(raiz);
+    }
+
+    // Método recursivo para imprimir el árbol en orden (inorder traversal)
+    private void imprimirInOrderRec(Nodo raizActual) {
+        if (raizActual != null) {
+            imprimirInOrderRec(raizActual.izquierda);
+            System.out.println(raizActual.estudiante.toString());
+            imprimirInOrderRec(raizActual.derecha);
         }
     }
 

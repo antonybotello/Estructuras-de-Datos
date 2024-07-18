@@ -41,6 +41,7 @@ public class App {
 
                 }
                 case 2 -> {
+                    arbolBinario.imprimirInOrder();
                 }
                 case 3 -> {
                 }
@@ -50,10 +51,6 @@ public class App {
                 }
                 case 5 -> {
 
-                }
-                case 6 -> {
-                }
-                case 7 -> {
                 }
                 case 0 -> {
                 }
