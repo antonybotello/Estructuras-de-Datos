@@ -18,7 +18,10 @@ public class PruebaMatrizAdyacencia {
         ma.agregarArista(3, 2);
         ma.agregarArista(4, 1);
         ma.agregarArista(4, 2);
-        ma.agregarArista(4, 4);    //impresión matriz de adyacencia    ma.imprimir();       ma.crearMatrizAdyacencia();    //impresión matriz de adyacencia    ma.imprimir();
+        ma.agregarArista(4, 4);
+        ma.imprimir();
+        ma.crearMatrizAdyacencia();
+        ma.imprimir();
 
     }
 }
